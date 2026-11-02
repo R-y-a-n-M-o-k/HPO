@@ -70,7 +70,7 @@ print('Number of Geometries:')
 print(len(geometries))
 geometries = np.array(geometries)
 
-np.savetxt('HPO_3D_grid.txt', 
+np.savetxt('HPO_3D_grid_test.txt', 
            geometries, 
            fmt=('%d','%.6f','%.6f','%.6f'), 
            delimiter=' ')

@@ -109,7 +109,7 @@ def get_dms(linear_params, nonlin_eq, orders):
             term.fill(linear_params[j])
             
             products = arg.copy()
-            products = (products - nonlin_params[:3])**orders[j,:3]
+            products[:, :2] = (products[:, :2] - nonlin_params[:2])**orders[j,:2]
 
             #original pes code
             #compute morse_arguments fix this 
@@ -119,8 +119,8 @@ def get_dms(linear_params, nonlin_eq, orders):
             #                  )**orders[j,:2]
             #
             ##compute angle values
-            #products[:, 2] = (np.cos(products[:, 2]) 
-            #                  - np.cos(nonlin_params[2]))**orders[j, 2]
+            products[:, 2] = (np.cos(products[:, 2]) 
+                              - np.cos(nonlin_params[2]))**orders[j, 2]
             
             #compute term
             for k in range(3):
